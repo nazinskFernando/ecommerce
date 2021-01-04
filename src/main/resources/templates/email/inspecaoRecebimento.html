@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title th:remove="all">Order Confirmation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 5px;
+        text-align: left;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <p>Bom dia,</p>
+      <p>Inspeção de recebimento:</p>
+      <table>
+        <tr>
+          <th>RIR</th>
+          <th>Nota Fiscal</th>
+          <th>Equipamento</th>
+          <th>PN</th>
+          <th>NP</th>
+          <th>Cliente</th>
+          <th>Contrato Jurídico</th>
+          <th>S2</th>
+        </tr>
+        <tr>
+          <td th:text="${inspecao.ordemServico.numeroRelatorio}"></td>
+          <td th:text="${inspecao.notaFiscal.numeroNotaFiscal}"></td>
+          <td th:text="${inspecao.equipamento.descricao}"></td>
+          <td th:text="${inspecao.equipamento.partNumber}"></td>
+          <td th:text="${inspecao.equipamento.serialNumber}"></td>
+          <td th:text="${inspecao.equipamento.cliente.nome}"></td>
+          <td th:text="${inspecao.equipamento.contratoJuridico}"></td>
+          <td th:text="${inspecao.ordemServico.s2}"></td>
+        </tr>
+      </table>
+      <!--<p>
+			Situação do pagamento: <span
+				th:text="${pedido.pagamento.estado.descricao}"></span>
+		</p>-->
+      <!--<h3>Detalhes do pedido:</h3>
+		<table border="1">
+			<tr>
+				<th>Produto</th>
+				<th>Quantidade</th>
+				<th>Preço unitário</th>
+				<th>Subtotal</th>
+			</tr>
+			<tr th:each="item : ${pedido.itens}">
+				<td th:text="${item.produto.nome}">nome</td>
+				<td th:text="${item.quantidade}">quantidade</td>
+				<td
+					th:text="${#numbers.formatDecimal(item.preco, 0, 'POINT', 2,
+'COMMA')}">preco</td>
+				<td
+					th:text="${#numbers.formatDecimal(item.subTotal, 0, 'POINT', 2,
+'COMMA')}">subTotal</td>
+			</tr>
+		</table>
+		<p>
+			Valor total: <span
+				th:text="${#numbers.formatDecimal(pedido.valorTotal, 0,
+'POINT', 2, 'COMMA')}"></span>
+		</p>-->
+    </div>
+  </body>
+</html>

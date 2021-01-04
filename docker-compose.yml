@@ -1,0 +1,21 @@
+version: "3"
+services:
+  ecommerce:
+    image: ecommerce
+    ports:
+      - "3000:3000"
+    networks:
+      - mysql
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:8
+    networks:
+      - mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bootdb
+
+networks:
+  employee-mysql:
